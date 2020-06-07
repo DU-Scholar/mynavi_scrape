@@ -17,7 +17,7 @@ def scrape(url):
     return data
 
 
-def makeData(urls):
+def makeData(urls, file):
     id = 0
     for url in urls:
         print(url)
@@ -60,4 +60,4 @@ def makeData(urls):
 
         # データに格納
         print(data)
-        Export.writeCsv(data)
+        Export.writeCsv(data, file)
