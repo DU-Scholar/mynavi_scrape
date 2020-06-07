@@ -29,7 +29,10 @@ def makeData(urls):
         soup = BeautifulSoup(res.content, 'html.parser')
 
         element = soup.find_all('h1')
+        print(element)
         name = element[0].string  # 企業名
+        if name is None:
+            name = element[0].contents[0]
         data.append(name)
 
         elements = soup.find_all('span', class_="noLink")
@@ -50,7 +53,7 @@ def makeData(urls):
         location = Export.getCorpDescription(soup, "corpDescDtoListDescText50")  # 住所
         data.append(location)
 
-        url = Export.getCorpDescription(soup, "corpDescDtoListDescText120")  # url
+        url = Export.getUrl(soup, "corpDescDtoListDescText120")  # url
         data.append(url)
 
         phoneNum = Export.getCorpDescription(soup, "corpDescDtoListDescText220")  # 電話番号

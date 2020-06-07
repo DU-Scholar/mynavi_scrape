@@ -20,3 +20,9 @@ Python 3.7.3
 
 $ pip3 install -r requirements.txt
 ```
+
+## Test用ファイル
+./src/scrape.spec.py
+
+## データ
+./data/data.csv
