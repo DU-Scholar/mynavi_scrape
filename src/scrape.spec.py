@@ -1,4 +1,4 @@
-import Export
+from src import Export
 import unittest
 import requests
 from bs4 import BeautifulSoup

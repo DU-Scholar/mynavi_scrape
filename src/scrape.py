@@ -3,11 +3,10 @@ import requests
 from bs4 import BeautifulSoup
 import re
 
-import Export
+from src import Export
 
 
-def scrape():
-    url = 'https://job.mynavi.jp/21/pc/search/query.html?HR:27/func=PCTopQuickSearch'
+def scrape(url):
     res = requests.get(url)
     soup = BeautifulSoup(res.text, 'html.parser')
     data = []
@@ -62,19 +61,3 @@ def makeData(urls):
         # データに格納
         print(data)
         Export.writeCsv(data)
-
-#
-# def pushFile(scrape):
-#     file_name = "../data/url.txt"
-#     data = str(scrape)
-#     try:
-#         file = open(file_name, 'w')
-#         file.write(data)
-#     finally:
-#         file.close()
-
-
-urls = scrape()
-makeData(urls)
-
-# pushFile(str(scrape()))

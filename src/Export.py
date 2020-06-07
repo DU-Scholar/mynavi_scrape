@@ -1,5 +1,4 @@
 import pandas as pd
-import re
 
 
 def getCorpDescription(soup, id):
@@ -30,7 +29,7 @@ def getUrl(soup, id):
 def writeCsv(data):
     if data[0] == 1:
         df = pd.DataFrame([data], columns=['id', 'name', 'category', 'CEO', 'place', 'url', 'phoneNumber'])
-        df.to_csv('./data/data.csv')
+        df.to_csv("../data/data.csv")
     else:
         df = pd.DataFrame([data])
-        df.to_csv("./data/data.csv", encoding="utf-8", mode='a', header=False)
+        df.to_csv("../data/data.csv", encoding="utf-8", mode='a', header=False)
